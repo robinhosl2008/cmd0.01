@@ -12,4 +12,6 @@
 */
 
 Route::get('/', 'LoginController@login')->name('login');
-Route::post('/logar', 'LoginController@logar')->name('logar');
+Route::post('/', 'LoginController@logar')->name('logar');
+
+Route::get('/', 'homeController@home')->name('home');
