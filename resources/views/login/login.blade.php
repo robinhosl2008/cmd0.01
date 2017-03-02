@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row" style="position: relative; padding-top: 10%; left: 35%;">
                 <div class="col-sm-12" style="width: 400px;" >
-                    <form method="post" action="logar" class="form-group">
+                    <form method="post" action="" class="form-group">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="row">
                             <div>

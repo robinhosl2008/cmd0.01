@@ -11,7 +11,10 @@ class HomeController extends Controller
     public function home()
     {
         session_start();
-        echo $_SESSION['id'];
-        return view('home/home');
+        if(!isset($_SESSION['id'])){
+            return view('login/login');
+        }else{
+            return view('home/home');
+        }
     }
 }

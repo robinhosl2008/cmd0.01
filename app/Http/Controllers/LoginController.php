@@ -8,23 +8,35 @@ use App\Http\Requests;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
-        return view('login/login');
+        if($request){
+            $this->logar($request->all());
+        }else {
+            return view('login/login');
+        }
     }
 
-    public function logar(Request $request)
+    public function logar($request)
     { // 202cb962ac59075b964b07152d234b70
         session_start();
-        $oRequest = $request->all();
 
-        if($oRequest['senha'] && $oRequest['email']) {
-            $senhaMD5 = md5($oRequest['senha']);
+        if($request['senha'] && $request['email']) {
+            $senhaMD5 = md5($request['senha']);
             
             if($senhaMD5 == '202cb962ac59075b964b07152d234b70') {
                 $_SESSION['id'] = $senhaMD5;
+            }else{
+                return view('login/login');
             }
         }
+
         return view('home/home');
+    }
+
+    public function sair(){
+        session_start();
+        session_destroy();
+        return view('login/login');
     }
 }
