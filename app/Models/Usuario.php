@@ -14,13 +14,15 @@ class Usuario
     private $nome;
     private $email;
     private $senha;
+    private $status;
 
-    public function __construct($id = null, $nome = null, $email = null, $senha = null)
+    public function __construct($id = null, $nome = null, $email = null, $senha = null, $status = null)
     {
         $this->id = $id;
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha;
+        $this->status = $status;
     }
 
     public function setId($id)
@@ -61,5 +63,15 @@ class Usuario
     public function getSenha()
     {
         return $this->senha;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

@@ -13,25 +13,23 @@ use App\Models\Usuario;
 
 class LoginService
 {
-    public function preparaLoginUsuario($oRequest)
+    public function preparaLoginUsuario($email, $senha)
     {
-        if ($oRequest['senha'] != '' && $oRequest['email'] != '') {
-            $senhaMD5 = md5($oRequest['senha']);
+        $senhaMD5 = md5($senha);
 
-            $objUsuario = new Usuario('', '', $oRequest['email'], $senhaMD5);
+        $objUsuario = new Usuario('', '', $email, $senhaMD5, '');
 
-            $usuarioRepository = new UsuarioRepository();
-            $usuario = $usuarioRepository->logaUsuario($objUsuario);
+        $usuarioRepository = new UsuarioRepository();
+        $usuario = $usuarioRepository->verificaUsuario($objUsuario);
 
-            if (sizeof($usuario) == 1) {
-                if ($usuario[0]->status == 'ativo') {
-                    return true;
-                } else {
-                    return false;
-                }
+        if (sizeof($usuario) == 1) {
+            if ($usuario[0]->status == 'ativo') {
+                return true;
             } else {
                 return false;
             }
+        } else {
+            return false;
         }
     }
 }

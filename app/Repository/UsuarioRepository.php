@@ -17,8 +17,9 @@ class UsuarioRepository
         return DB::select('select * from usuario');
     }
 
-    public function logaUsuario(Usuario $objUsuario)
+    public function verificaUsuario(Usuario $objUsuario)
     {
-        return DB::select("select * from usuario where email = '".$objUsuario->getEmail()."' and senha = '".$objUsuario->getSenha()."'");
+        return DB::select("select * from usuario where email = '".$objUsuario->getEmail().
+            "' and senha = '".$objUsuario->getSenha()."' and status = '".$objUsuario->getStatus()."'");
     }
 }

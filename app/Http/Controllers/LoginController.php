@@ -11,33 +11,41 @@ class LoginController extends Controller
     public function login()
     {
         session_start();
-        if (!isset($_SESSION['logado'])){
+        if (isset($_SESSION['logado'])){
             if ($_SESSION['logado'] != 'sim'){
                 return view('login/login');
             } else {
                 return redirect()->route('home');
             }
+        } else {
+            $_SESSION['logado'] = 'nao';
+            return view('login/login');
         }
     }
 
     public function logar(Request $request)
     {
-        if($request['email'] != '' && $request['senha'] != '') {
-            $oRequest = $request->all();
+        session_start();
+        $email = $request['email'];
+        $senha = $request['senha'];
 
-            $usuarioService = new LoginService();
-            $resultado = $usuarioService->preparaLoginUsuario($oRequest);
+        if($email != '' && $senha != '') {
+            $loginService = new LoginService();
+            $resultado = $loginService->preparaLoginUsuario($email, $senha);
 
-            print_r($resultado);
-            exit;
+            if ($resultado == true) {
+                $_SESSION['logado'] = 'sim';
+                return redirect()->route('home');
+            }
         }
 
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 
     public function sair(){
         session_start();
+        $_SESSION['logado'] = 'nao';
         session_destroy();
-        return redirect('/');
+        return redirect()->route('login');
     }
 }
