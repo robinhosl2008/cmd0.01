@@ -11,36 +11,25 @@ class LoginController extends Controller
     public function login()
     {
         session_start();
-        echo isset($_SESSION['id']);
-        if(!isset($_SESSION['id'])) {
-            return view('login/login');
-        }else{
-            return redirect()->route('home');
+        if (!isset($_SESSION['logado'])){
+            if ($_SESSION['logado'] != 'sim'){
+                return view('login/login');
+            } else {
+                return redirect()->route('home');
+            }
         }
     }
 
     public function logar(Request $request)
     {
-        session_start();
-        if($request->all()) {
+        if($request['email'] != '' && $request['senha'] != '') {
             $oRequest = $request->all();
 
             $usuarioService = new LoginService();
+            $resultado = $usuarioService->preparaLoginUsuario($oRequest);
 
-            if ($oRequest['senha'] != '' && $oRequest['email'] != '') {
-                $senhaMD5 = md5($oRequest['senha']);
-                $usuario = $usuarioService->preparaLoginUsuario($oRequest['email'], $senhaMD5);
-
-                if ($senhaMD5 == $usuario[0]->senha) {
-                    $_SESSION['id'] = session_id();
-                    $_SESSION['usuario'] = $usuario->nome;
-                    $_SESSION['id_usuario'] = $usuario->id;
-                } else {
-                    return redirect()->route('login');
-                }
-            } else {
-                return redirect()->route('login');
-            }
+            print_r($resultado);
+            exit;
         }
 
         return redirect()->route('home');

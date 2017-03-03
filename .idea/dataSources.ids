@@ -26,7 +26,11 @@
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="7" parent="2" name="PRIMARY">
+      <column id="7" parent="2" name="status">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>

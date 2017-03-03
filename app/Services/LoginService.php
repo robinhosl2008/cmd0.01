@@ -13,9 +13,25 @@ use App\Models\Usuario;
 
 class LoginService
 {
-    public function preparaLoginUsuario($email, $senha)
+    public function preparaLoginUsuario($oRequest)
     {
-        
-//        echo $email; echo "<br />"; echo $senha; exit;
+        if ($oRequest['senha'] != '' && $oRequest['email'] != '') {
+            $senhaMD5 = md5($oRequest['senha']);
+
+            $objUsuario = new Usuario('', '', $oRequest['email'], $senhaMD5);
+
+            $usuarioRepository = new UsuarioRepository();
+            $usuario = $usuarioRepository->logaUsuario($objUsuario);
+
+            if (sizeof($usuario) == 1) {
+                if ($usuario[0]->status == 'ativo') {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
     }
 }

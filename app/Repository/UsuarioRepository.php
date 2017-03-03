@@ -8,16 +8,17 @@
 
 namespace App\Repository;
 
-use App\Infrastructure\BaseRepository;
 use Illuminate\Support\Facades\DB;
+use App\Models\Usuario;
 
-class UsuarioRepository extends BaseRepository
+class UsuarioRepository
 {
     public function listaUsuarios(){
         return DB::select('select * from usuario');
     }
 
-    public function logaUsuario($email, $senha){
-        return DB::select("select * from usuario where email = '".$email."' and senha = '".$senha."'");
+    public function logaUsuario(Usuario $objUsuario)
+    {
+        return DB::select("select * from usuario where email = '".$objUsuario->getEmail()."' and senha = '".$objUsuario->getSenha()."'");
     }
 }
