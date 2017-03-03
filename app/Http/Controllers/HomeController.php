@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuario;
 
 use App\Http\Requests;
 
@@ -12,9 +13,11 @@ class HomeController extends Controller
     {
         session_start();
         if(!isset($_SESSION['id'])){
-            return view('login/login');
+            return redirect('/');
         }else{
-            return view('home/home');
+            $usuarioModel = new Usuario();
+            $usuarios = $usuarioModel->listaUsuarios();
+            return view('home/home')->with('usuarios', $usuarios);
         }
     }
 }
