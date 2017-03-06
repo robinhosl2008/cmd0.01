@@ -1,0 +1,13 @@
+/* Formulário de login */
+
+#alertaFormLoginEmail {
+    color: #ff0000;
+    float: right;
+    display: none;
+}
+
+#alertaFormLoginSenha {
+    color: #ff0000;
+    float: right;
+    display: none;
+}

@@ -17,19 +17,37 @@ class LoginService
     {
         $senhaMD5 = md5($senha);
 
-        $objUsuario = new Usuario('', '', $email, $senhaMD5, '');
+        $objUsuario = new Usuario('', '', $email, $senhaMD5, 'ativo', '');
 
         $usuarioRepository = new UsuarioRepository();
         $usuario = $usuarioRepository->verificaUsuario($objUsuario);
 
-        if (sizeof($usuario) == 1) {
-            if ($usuario[0]->status == 'ativo') {
-                return true;
-            } else {
-                return false;
+        $resposta = array();
+        if (gettype($usuario) == 'object') {
+            if ($usuario->getStatus() == 'ativo') {
+                $resposta['tipo_mensagem'] = "success";
+                $resposta['mensagem'] = "Usuário ".$usuario->getNome()." logado com sucesso!";
+                $_SESSION['status'] = $usuario->getStatus();
+                $_SESSION['logado'] = "sim";
+                return $resposta;
             }
-        } else {
-            return false;
+            // Este bloco valida se o usuário está ativo ou inativo no sistema pelo adm.
+            //else {
+//                $_SESSION['tipo_mensagem'] = "warning";
+//                $_SESSION['mensagem'] = "Usuário inativo. Entre em contato com o seu administrador!";
+//                $_SESSION['status'] = "inativo";
+//                return false;
+//            }
+        } elseif ($usuario == 0) {
+            $resposta['tipo_mensagem'] = "warning";
+            $resposta['mensagem'] = "Senha incorreta!";
+            $_SESSION['logado'] = "nao";
+            return $resposta;
+        } elseif ($usuario == 1) {
+            $resposta['tipo_mensagem'] = "warning";
+            $resposta['mensagem'] = "Usuário não cadastrado!";
+            $_SESSION['logado'] = "nao";
+            return $resposta;
         }
     }
 }

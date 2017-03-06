@@ -11,6 +11,7 @@ class LoginController extends Controller
     public function login()
     {
         session_start();
+
         if (isset($_SESSION['logado'])){
             if ($_SESSION['logado'] != 'sim'){
                 return view('login/login');
@@ -18,7 +19,6 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         } else {
-            $_SESSION['logado'] = 'nao';
             return view('login/login');
         }
     }
@@ -29,23 +29,22 @@ class LoginController extends Controller
         $email = $request['email'];
         $senha = $request['senha'];
 
+
         if($email != '' && $senha != '') {
             $loginService = new LoginService();
             $resultado = $loginService->preparaLoginUsuario($email, $senha);
 
-            if ($resultado == true) {
-                $_SESSION['logado'] = 'sim';
-                return redirect()->route('home');
+            if ($_SESSION['logado'] == 'sim') {
+                return json_encode($resultado);
+            } elseif ($_SESSION['logado'] == 'nao') {
+                return json_encode($resultado);
             }
         }
-
-        return redirect()->route('login');
     }
 
     public function sair(){
         session_start();
-        $_SESSION['logado'] = 'nao';
-        session_destroy();
+        session_unset();
         return redirect()->route('login');
     }
 }
