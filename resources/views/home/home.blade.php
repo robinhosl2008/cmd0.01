@@ -54,87 +54,87 @@
         <![endif]-->
     </head>
     <body>
-    <div id="wrapper">
+        <div id="wrapper">
 
-        <!-- Inicio da navegação -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Inicio da navegação -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-            <!-- logo e menu toggle -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Menu Toggle mobile</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="{{ asset('/img/logo_peb.png') }}" class="img-responsive" alt=""></a>
-            </div>
+                <!-- logo e menu toggle -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Menu Toggle mobile</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="{{ asset('/img/logo_peb.png') }}" class="img-responsive" alt=""></a>
+                </div>
 
-            <!-- Barra de menu superior -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="cadastrar_usuario.html">Cadastrar</a>
-                        </li>
+                <!-- Barra de menu superior -->
+                <ul class="nav navbar-right top-nav">
+                    {{--<li class="dropdown">--}}
+                        {{--<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <b class="caret"></b></a>--}}
+                        {{--<ul class="dropdown-menu">--}}
+                            {{--<li>--}}
+                                {{--<a href="cadastrar_usuario.html">Cadastrar</a>--}}
+                            {{--</li>--}}
 
-                        <li>
-                            <a href="listar_usuarios.html">Visualizar</a>
-                        </li>
+                            {{--<li>--}}
+                                {{--<a href="listar_usuarios.html">Visualizar</a>--}}
+                            {{--</li>--}}
 
 
 
-                        <li class="divider"></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" onclick="return sairSistema({{ $_SESSION['usuario_id'] }})"><i class="fa fa-fw fa-sign-out"></i>Sair</a>
-                    <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
-                </li>
-            </ul>
-            <div class="main-nav" ></div><!--fim-->
-
-            <!-- Menu lateral -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
-                    </li>
-
+                            {{--<li class="divider"></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
                     <li>
-                        <a href="listar_conteudo.html"><i class="fa fa-files-o"></i> Listar categorias</a>
-                    </li>
-
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#conteudos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Conteúdo <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="conteudos" class="collapse">
-
-                            <li>
-                                <a href="criar_conteudo.html">Criar conteúdo</a>
-                            </li>
-
-                            <li>
-                                <a href="editar_conteudo.html">Editar conteúdo</a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#admin"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="admin" class="collapse">
-                            <li>
-                                <a href="cadastrar_usuario.html">Cadastrar</a>
-                            <li>
-                                <a href="listar_usuarios.html">Listar</a>
-                            </li>
-                            </li>
-                        </ul>
+                        <a href="#" onclick="return sairSistema({{ $_SESSION['usuario_id'] }})"><i class="fa fa-fw fa-sign-out"></i>Sair</a>
+                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                     </li>
                 </ul>
-            </div>
-        </nav><!-- fim navevegação-->
+                <div class="main-nav" ></div><!--fim-->
+
+                <!-- Menu lateral -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav">
+                        <li class="active">
+                            <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                        </li>
+
+                        <li>
+                            <a href="listar_conteudo.html"><i class="fa fa-files-o"></i> Listar categorias</a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#conteudos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Conteúdo <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="conteudos" class="collapse">
+
+                                <li>
+                                    <a href="criar_conteudo.html">Criar conteúdo</a>
+                                </li>
+
+                                <li>
+                                    <a href="editar_conteudo.html">Editar conteúdo</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#admin"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="admin" class="collapse">
+                                <li>
+                                    <a href="cadastrar_usuario.html">Cadastrar</a>
+                                <li>
+                                    <a href="/listar-usuario">Listar</a>
+                                </li>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav><!-- fim navevegação-->
 
 
         <!-- conteúdo da página -->

@@ -15,4 +15,9 @@ Route::get('/', 'LoginController@login')->name('login');
 Route::post('/logar', 'LoginController@logar')->name('logar');
 Route::post('/sair', 'LoginController@sair')->name('sair');
 
-Route::get('/home', 'homeController@home')->name('home');
+Route::get('/home', 'HomeController@home')->name('home');
+
+Route::get('/listar-usuario', 'UsuarioController@listar')->name('lista-usuario');
+Route::get('/editar-usuario/{id}', 'UsuarioController@editar')->name('editar-usuario');
+Route::get('/cadastrar-usuario', 'UsuarioController@cadastrar')->name('cadastrar-usuario');
+Route::get('/deletar-usuario/{id}', 'UsuarioController@deletar')->name('cadastrar-deletar');
