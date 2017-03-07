@@ -44,6 +44,6 @@ class LoginController extends Controller
         $loginService = new LoginService();
         $loginService->deslogaUsuario($id);
         session_unset();
-        return redirect()->route('login');
+
     }
 }

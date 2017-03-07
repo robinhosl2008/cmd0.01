@@ -13,6 +13,6 @@
 
 Route::get('/', 'LoginController@login')->name('login');
 Route::post('/logar', 'LoginController@logar')->name('logar');
-Route::get('/sair', 'LoginController@sair')->name('sair');
+Route::post('/sair', 'LoginController@sair')->name('sair');
 
 Route::get('/home', 'homeController@home')->name('home');

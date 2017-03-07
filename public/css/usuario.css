@@ -17,3 +17,8 @@
 div .formLogin {
     padding-bottom: 80px;
 }
+
+#spinner {
+    width: 200px;
+    height: 200px;
+}

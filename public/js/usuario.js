@@ -71,3 +71,18 @@ function limpaEmailLogin() {
 function limpaSenhaLogin() {
     $('.alertaFormLoginSenha').hide();
 }
+
+function sairSistema(id) {
+    var token = $('#_token').val();
+    $.ajax({
+        url: "/sair",
+        method: "POST",
+        data: {
+            id: id,
+            _token: token
+        },
+        success: function () {
+            window.location.replace("http://192.168.0.130:8000");
+        }
+    });
+}
