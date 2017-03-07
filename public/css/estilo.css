@@ -1,0 +1,466 @@
+@charset "UTF-8";
+
+/* CSS
+Autor: PEBMED
+
+Categorias dessa folha de estilo:
+
+- Menu Superior
+- Menu Lateral
+- Logo
+- Menu top - navebar inversa
+- Busca com filtro
+- icone Edição
+- Campo de buscas tabelas de categorias, pai, filhos e conteúdos
+- Menu mobile - Toggle
+
+
+*/
+
+
+body {
+    margin-top: 100px;
+    background-color: #222;
+}
+
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+}
+
+
+@media (min-width: 768px){
+
+    .table 
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+}
+
+.huge {
+    font-size: 50px;
+    line-height: normal;
+}
+
+@media(min-width:768px) {
+#wrapper {
+    padding-left: 225px;
+    }
+
+#page-wrapper {
+    padding: 10px;
+    }
+}
+
+/* Menu superiror */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #000;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.message-footer {
+    margin: 5px 0;
+}
+
+ul.alert-dropdown {
+    width: 200px;
+}
+
+/* Menu leteral */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #333;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+.side-nav>li>a {
+        width: 225px;
+    }
+
+.side-nav li a:hover,
+.side-nav li a:focus {
+        outline: none;
+        background-color: #000 !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+
+/** logo **/
+.navbar-brand>img {
+    display: block;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+    margin-top: -6px;
+}
+
+/* menu top */
+
+.navbar-inverse {
+    background-color: #e7e7e7;
+    border-color: #eee;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+/* Barra Main Nav  */
+
+.main-nav {
+    margin: 0 auto;
+    background: #2d2d2d;
+    box-shadow: inset -1px -5px 0px -1px #393939;
+    min-height: 4px;
+    border-bottom: 5px solid #F88C00;
+    border-image:url(../img/color-bar.png) 10 / 0px 0px 5px 0px;
+}
+
+.btn-ver {
+    color: #7390bc;
+    /* background-color: #337ab7; */
+    /* border-color: #2e6da4; */
+}
+
+
+/* Menu mobile - Toggle*/
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #333;
+}
+
+
+.navbar-inverse .navbar-toggle:hover {
+    background-color: #e7e7e7;
+}
+
+
+
+.navbar-inverse .navbar-toggle {
+    border-color: #e7e7e7;
+}
+
+
+
+.navbar1-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+
+.navbar1-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #080808;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #e7e7e7;
+}
+
+/* campo de buscas tabelas de categorias, pai, filhos e conteúdos */
+
+.panel-body {
+    padding: 15px;
+}
+
+
+.panel-default-filho {
+    border-color: #ddd;
+    margin-top: 15px;
+}
+
+
+.panel-default-filho>.panel-heading {
+    color: #333;
+    background-color: #E48585;
+    border-color: #ddd;
+}
+
+
+.panel-default-pai {
+    border-color: #ddd;
+    margin-top: 15px;
+    /* width:450px; */
+    height:480px; 
+    overflow:auto;
+}
+
+
+.panel-default-pai>.panel-heading {
+    color: #333;
+    background-color: #0091CF;
+    border-color: #ddd;
+
+}
+
+
+.panel-default-conteudo {
+    border-color: #ddd;
+    margin-top: 15px;
+}
+
+
+.panel-default-conteudo {
+    border-color: #ddd;
+    margin-top: 15px;
+    /* width:450px; */
+    height:480px; 
+    overflow:auto;
+}
+
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    color: #fff;
+}
+
+
+a.list-group-item, button.list-group-item {
+    color: #73879c;
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 13px;
+}
+
+
+.panel-default-conteudo>.panel-heading {
+    color: #333;
+    background-color: #e4b80e;
+    border-color: #ddd;
+}
+
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+
+.pediatria {
+    color: #d8ad09;
+    font-size: 20px;
+
+}
+
+
+.wbook {
+    color: #f95b45;
+    font-size: 20px;
+
+}
+
+
+.clinicas {
+    color: #15b1c1;
+    font-size: 20px;
+
+}
+
+
+.ginecologia {
+    color: #ae43be;
+    font-size: 20px;
+
+}
+
+
+.cirurgia {
+    color: #52cea7;
+    font-size: 20px;
+
+}
+
+
+/*icone Edição*/
+
+.edicao {
+    color:#148f9c;
+
+}
+
+
+/* Busca com filtro */
+
+body {
+    padding-top: 50px;
+}
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+   border-top-left-radius: 4px;
+   border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+#adv-search {
+    width: 100%;
+    margin: 0 auto;
+    }
+.dropdown.dropdown-lg {
+    position: static !important;
+    }
+.dropdown.dropdown-lg .dropdown-menu {
+    min-width: 500px;
+    }
+}
+
+
+.label-info {
+    background-color: #2980b9;
+}
+
+.label {
+    padding: 1px 4px;
+}
+
+.label, .badge {
+    font-weight: normal;
+    font-size: 90%;
+}
+
+.label-info {
+    background-color: #f95b45;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    margin-left: 10px;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+

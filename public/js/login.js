@@ -9,8 +9,8 @@
 // });
 
 function submitLogin() {
-    var email = $('#email').val();
-    var senha = $('#senha').val();
+    var email = $('#inputEmail').val();
+    var senha = $('#inputPassword').val();
     var token = $('#_token').val();
     var data = {
         email: email,
@@ -19,12 +19,12 @@ function submitLogin() {
     };
 
     if (email === '') {
-        $('#email').focus();
+        $('#inputEmail').focus();
         $('.alertaFormLoginEmail').show();
         $('.alertaFormLoginSenha').hide();
     } else {
         if (senha === '') {
-            $('#senha').focus();
+            $('#inputPassword').focus();
             $('.alertaFormLoginSenha').show();
             $('.alertaFormLoginEmail').hide();
         } else {
@@ -68,7 +68,7 @@ function limpaEmailLogin() {
     $('.alertaFormLoginEmail').hide();
 }
 
-function limpaSenhaLogin() {
+function limpaPasswordLogin() {
     $('.alertaFormLoginSenha').hide();
 }
 
