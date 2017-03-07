@@ -18,18 +18,15 @@
         <meta name="author" content="">
 
         <title>PEBMED - ADMINA - LOGIN</title>
+
         <!-- Icon browser tab -->
         <link rel="shortcut icon" href="{{ asset('/img/pebmed-60.png') }}">
-        <!-- Bootstrap CSS -->
-        {{--<link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">--}}
-                <!-- CSS do projeto -->
 
         <script src="{{ asset('/js/jquery.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('/js/login.js') }}" type="text/javascript"></script>
         <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/login.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.min.css') }}" />
-        <link rel="stylesheet" type="text/css" href="{{ asset('/css/usuario.css') }}" />
     </head>
     <body>
         <!-- inicio main-nav -->
@@ -47,7 +44,7 @@
                     <span id="reauth-email" class="reauth-email"></span>
 
                     <div class="senha">
-                        <input type="email" id="inputEmail" onkeypress="limpaEmailLogin()" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" placeholder="Usuário" required autofocus>
+                        <input type="email" id="inputEmail" onkeypress="limpaEmailLogin()" class="form-control" placeholder="Usuário" required autofocus>
                         <i class="alertaFormLoginEmail">Este campo é obrigatório!</i><i class="alertaFormLoginEmailInvalido">Informe um e-mail válido!</i>
                     </div>
 
