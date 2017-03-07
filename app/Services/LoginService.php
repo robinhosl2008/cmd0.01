@@ -27,8 +27,10 @@ class LoginService
             if ($usuario->getStatus() == 'ativo') {
                 $resposta['tipo_mensagem'] = "success";
                 $resposta['mensagem'] = "Usuário ".$usuario->getNome()." logado com sucesso!";
-                $_SESSION['status'] = $usuario->getStatus();
+                $resposta['logado'] = "sim";
+
                 $_SESSION['logado'] = "sim";
+                $_SESSION['usuario_id'] = $usuario->getId();
                 return $resposta;
             }
             // Este bloco valida se o usuário está ativo ou inativo no sistema pelo adm.
@@ -49,5 +51,10 @@ class LoginService
             $_SESSION['logado'] = "nao";
             return $resposta;
         }
+    }
+
+    public function deslogaUsuario($id) {
+        $usuarioRepository = new UsuarioRepository();
+        $usuarioRepository->deslogaUsuario($id);
     }
 }

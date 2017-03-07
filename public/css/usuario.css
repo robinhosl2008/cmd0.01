@@ -1,13 +1,19 @@
 /* Formulário de login */
 
-#alertaFormLoginEmail {
+.alertaFormLoginEmail {
     color: #ff0000;
     float: right;
     display: none;
+    font-size: 10px;
 }
 
-#alertaFormLoginSenha {
+.alertaFormLoginSenha {
     color: #ff0000;
     float: right;
     display: none;
+    font-size: 10px;
+}
+
+div .formLogin {
+    padding-bottom: 80px;
 }

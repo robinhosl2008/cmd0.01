@@ -10,11 +10,14 @@ class HomeController extends Controller
     public function home()
     {
         session_start();
-        echo $_SESSION['logado'];
-        if ($_SESSION['logado'] = 'sim') {
-            return view('home/home');
+        if (isset($_SESSION['logado'])) {
+            if ($_SESSION['logado'] == 'sim') {
+                return view('home/home');
+            } else {
+                return redirect()->route('login');
+            }
         } else {
-            return redirect()->route('/');
+            return redirect()->route('login');
         }
     }
 }

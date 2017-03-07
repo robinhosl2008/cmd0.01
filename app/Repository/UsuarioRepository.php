@@ -35,9 +35,7 @@ class UsuarioRepository
                     $objUsuario->setStatus($u->status);
                     $objUsuario->setLogado($u->logado);
 
-                    if ($objUsuario->getLogado() == "nao") {
-                        $this->logaUsuario($u->id);
-                    }
+                    $this->logaUsuario($u->id);
 
                     return $objUsuario;
                 }
@@ -54,5 +52,10 @@ class UsuarioRepository
     public function logaUsuario($id)
     {
         DB::select("UPDATE usuario SET logado = 'sim' WHERE id = ".$id);
+    }
+
+    public function deslogaUsuario($id)
+    {
+        DB::select("UPDATE usuario SET logado = 'nao' WHERE id = ".$id);
     }
 }

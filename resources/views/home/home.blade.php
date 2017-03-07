@@ -22,7 +22,9 @@
         <div class="container">
             <div class="row" style="position: relative; padding-top: 10%; left: 35%;">
                 <div class="col-sm-12" style="width: 400px;" >
-                    <h2>Estou no home!</h2>
+                    {{-- usar jquery --}}
+                    <h2>Estou no home!</h2>  <a href="#" style="text-decoration: none">Sair</a>
+                    <input type="hidden" id="usuario_id" name="usuario_id" value="<?php echo $_SESSION['usuario_id']; ?>" />
                 </div>
             </div>
         </div>
