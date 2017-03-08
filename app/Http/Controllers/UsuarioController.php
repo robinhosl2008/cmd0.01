@@ -12,4 +12,16 @@ class UsuarioController extends Controller
         session_start();
         return view('usuario/listar-usuario');
     }
+
+    public function cadastrar() {
+        return view('usuario/cadastrar-usuario');
+    }
+
+    public function editar() {
+        return view('usuario/editar-usuario');
+    }
+
+    public function deletar() {
+
+    }
 }

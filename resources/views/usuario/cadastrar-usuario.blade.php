@@ -29,6 +29,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.min.css') }}" />
     </head>
     <body>
-        <h2>Estou na listagem de usuários.</h2>
+        <h2>Estou no formulário de cadastro de usuários.</h2>
     </body>
 </html>

@@ -125,7 +125,7 @@
                             <a href="javascript:;" data-toggle="collapse" data-target="#admin"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="admin" class="collapse">
                                 <li>
-                                    <a href="cadastrar_usuario.html">Cadastrar</a>
+                                    <a href="/cadastrar-usuario">Cadastrar</a>
                                 <li>
                                     <a href="/listar-usuario">Listar</a>
                                 </li>
