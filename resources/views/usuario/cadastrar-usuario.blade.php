@@ -27,8 +27,175 @@
         <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/login.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/custom.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/estilo.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/font-awesome.min.css') }}">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
-        <h2>Estou no formulário de cadastro de usuários.</h2>
+        <div id="wrapper">
+
+            <!-- Inicio da navegação -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+                <!-- logo e menu toggle -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Menu Toggle mobile</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="{{ asset('/img/logo_peb.png') }}" class="img-responsive" alt=""></a>
+                </div>
+
+                <!-- Barra de menu superior -->
+                <ul class="nav navbar-right top-nav">
+                    {{--<li class="dropdown">--}}
+                    {{--<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <b class="caret"></b></a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                    {{--<li>--}}
+                    {{--<a href="cadastrar_usuario.html">Cadastrar</a>--}}
+                    {{--</li>--}}
+
+                    {{--<li>--}}
+                    {{--<a href="listar_usuarios.html">Visualizar</a>--}}
+                    {{--</li>--}}
+
+
+
+                    {{--<li class="divider"></li>--}}
+                    {{--</ul>--}}
+                    {{--</li>--}}
+                    <li>
+                        <a href="#" onclick="return sairSistema({{ $_SESSION['usuario_id'] }})"><i class="fa fa-fw fa-sign-out"></i>Sair</a>
+                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+                    </li>
+                </ul>
+                <div class="main-nav" ></div><!--fim-->
+
+                <!-- Menu lateral -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav">
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fa fa-fw fa-home"></i> Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="listar_conteudo.html">
+                                <i class="fa fa-files-o"></i> Listar categorias
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#conteudos"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Conteúdo <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="conteudos" class="collapse">
+                                <li><a href="criar_conteudo.html">Criar conteúdo</a></li>
+                                <li><a href="editar_conteudo.html">Editar conteúdo</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#admin"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="admin" class="collapse">
+                                <li><a href="/cadastrar-usuario">Cadastrar</a></li>
+                                <li><a href="/listar-usuario">Listar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav><!-- fim navevegação-->
+
+            <!-- conteúdo da página -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+
+                    <!-- Cabeçalho da página interna -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Área <small>Administrador</small>
+                            </h1>
+                        </div>
+                    </div><!-- fim do cabeçalho interno -->
+
+                    <!-- inicio do formulário de cadastro de usuário -->
+
+                    <!-- Fomulário de administração -->
+                    <div class="right_col" role="main">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content_forms">
+                                        <br />
+                                        <form class="form-horizontal form-label-left">
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Nome</label>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail </label>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Senha</label>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <input type="password" class="form-control" value="">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Perfil</label>
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <select class="form-control">
+                                                        <option>Escolha uma opção</option>
+                                                        <option>Administrador</option>
+                                                        {{--<option>Editor</option>--}}
+                                                        <option>Conteudista</option>
+                                                        {{--<option>Corretor</option>--}}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                    <button type="submit" class="btn btn-primary">Cancelar</button>
+                                                    <button type="submit" class="btn btn-success">Enviar</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- fim row -->
+                    </div><!-- /fim formulário de cadastreo de usuário -->
+                </div><!-- /.container-fluid -->
+            </div><!-- /#page-wrapper -->
+
+            <!-- Jquery e Bootstrap de Datatables -->
+            <script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>
+            <link href="{{ asset('/css/dataTables.bootstrap.min.css') }}"/>
+
+            <!-- Scripts customizável -->
+            <script src="{{ asset('/js/tabelas/custom.js') }}"></script>
+        </div>
     </body>
 </html>

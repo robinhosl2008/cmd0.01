@@ -189,7 +189,7 @@
             </div>
         </div>
     </div><!-- fim do page-wrapper - contúdo central da página -->
-    
+
     <!-- Jquery e Bootstrap de Datatables -->
     <script src="{{ asset('/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script>

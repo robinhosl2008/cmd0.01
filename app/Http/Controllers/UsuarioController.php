@@ -14,6 +14,7 @@ class UsuarioController extends Controller
     }
 
     public function cadastrar() {
+        session_start();
         return view('usuario/cadastrar-usuario');
     }
 
